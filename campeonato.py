@@ -76,35 +76,57 @@ ii. Partidos Empatados (INT)
 iii. Partidos Perdidos (INT)
 iv. Goles a Favor(INT)
 v. Goles en contra (INT) """
+pg1 = 0
+pe1 = 0
+pp1 = 0
+gf1 = 0
+gc1 = 0
 
+pe2 = 0
+pp2 = 0
+pg2 = 0
+gf2 = 0
+gc2 = 0
+
+pg3 = 0
+pe3 = 0
+pp3 = 0
+gf3 = 0
+gc3 = 0
+
+pg4 = 0
+pe4 = 0
+pp4 = 0
+gf4 = 0
+gc4 = 0
 grupo = {
     team1: [
-        0,
-        0,
-        0,
-        0,
-        0
+        pg1,
+        pe1,
+        pe1,
+        gf1,
+        gc1
     ],
     team2: [
-        0,
-        0,
-        0,
-        0,
-        0
+        pg2,
+        pe2,
+        pe2,
+        gf2,
+        gc2
     ],
     team3: [
-        0,
-        0,
-        0,
-        0,
-        0
+        pg3,
+        pe3,
+        pe3,
+        gf3,
+        gc3
     ],
     team4: [
-        0,
-        0,
-        0,
-        0,
-        0
+        pg4,
+        pe4,
+        pe4,
+        gf4,
+        gc4
     ]
 }
 
