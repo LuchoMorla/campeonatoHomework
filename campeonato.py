@@ -60,10 +60,10 @@ fecha3team4_goles = input('¿cuantos goles hizo el equipo ' + team3 + ' en el pa
 print('resultado partido #1: ' + team1 + ' ' + fecha3team1_goles + ' - ' + fecha3team2_goles + ' ' + team4)
 print('resultado pratido #2: ' + team2 + ' ' + fecha3team3_goles + ' - ' + fecha3team4_goles + ' ' + team3)
 
-fecha2team1_goles_int = int(fecha2team1_goles)
-fecha2team2_goles_int = int(fecha2team2_goles)
-fecha2team3_goles_int = int(fecha2team3_goles)
-fecha2team4_goles_int = int(fecha2team4_goles)
+fecha3team1_goles_int = int(fecha3team1_goles)
+fecha3team2_goles_int = int(fecha3team2_goles)
+fecha3team3_goles_int = int(fecha3team3_goles)
+fecha3team4_goles_int = int(fecha3team4_goles)
 
 """ 3) Se deberá crear un diccionario que tenga la información de los equipos. La 
 estructura de la información será la siguiente:
@@ -103,28 +103,28 @@ grupo = {
     team1: [
         pg1,
         pe1,
-        pe1,
+        pp1,
         gf1,
         gc1
     ],
     team2: [
         pg2,
         pe2,
-        pe2,
+        pp2,
         gf2,
         gc2
     ],
     team3: [
         pg3,
         pe3,
-        pe3,
+        pp3,
         gf3,
         gc3
     ],
     team4: [
         pg4,
         pe4,
-        pe4,
+        pp4,
         gf4,
         gc4
     ]
@@ -133,15 +133,35 @@ grupo = {
 def resultados_partidos(equipo1, goles_equipo1, equipo2, goles_equipo2):
     """ eleccion de resultados de los partidos """
     if goles_equipo1 > goles_equipo2:
-        grupo[equipo1[0]] += 1
-        grupo[equipo2[2]] += 1
+        grupo[equipo1][0] += 1
+        grupo[equipo2][2] += 1
+        grupo[equipo1][3] += goles_equipo1
+        grupo[equipo1][4] -= goles_equipo2
+        grupo[equipo2][3] += goles_equipo2
+        grupo[equipo2][4] -= goles_equipo1
     if goles_equipo1 < goles_equipo2:
-        grupo[equipo2[0]] += 1
-        grupo[equipo1[2]] += 1
+        grupo[equipo2][0] += 1
+        grupo[equipo1][2] += 1
+        grupo[equipo1][3] += goles_equipo1
+        grupo[equipo1][4] -= goles_equipo2
+        grupo[equipo2][3] += goles_equipo2
+        grupo[equipo2][4] -= goles_equipo1
     if goles_equipo1 == goles_equipo2:
-        grupo[equipo2[1]] += 1
-        grupo[equipo1[1]] += 1
+        grupo[equipo2][1] += 1
+        grupo[equipo1][1] += 1
+        grupo[equipo1][3] += goles_equipo1
+        grupo[equipo1][4] -= goles_equipo2
+        grupo[equipo2][3] += goles_equipo2
+        grupo[equipo2][4] -= goles_equipo1
 
 resultados_partidos(team1, fecha1team1_goles_int, team2, fecha1team2_goles_int)
+resultados_partidos(team3, fecha1team3_goles_int, team4, fecha1team4_goles_int)
+print('primera fecha', grupo[team1])
 
+resultados_partidos(team1, fecha2team1_goles_int, team3, fecha2team3_goles_int)
+resultados_partidos(team2, fecha2team2_goles_int, team4, fecha2team4_goles_int)
+print('segunda fecha', grupo[team1])
+
+resultados_partidos(team1, fecha3team1_goles_int, team4, fecha3team4_goles_int)
+resultados_partidos(team2, fecha3team2_goles_int, team3, fecha3team3_goles_int)
 print(grupo[team1])
